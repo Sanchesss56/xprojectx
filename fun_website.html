@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project X - Технологическая магия для вашего бизнеса</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .logo span {
+            color: #ff9800;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #8e44ad;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #ff9800;
+            margin: 1rem auto;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+            border-top-color: #ff9800;
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+            color: white;
+            font-size: 2.5rem;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            margin-bottom: 1rem;
+            color: #8e44ad;
+        }
+        
+        .benefits {
+            background-color: #f5f6fa;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 152, 0, 0.5);
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-card {
+            width: 320px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-header {
+            background: linear-gradient(135deg, #9b59b6, #3498db);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .contact-image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: -75px auto 0;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .contact-photo, .contact-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        
+        .contact-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .contact-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #8e44ad;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 1.5rem;
+            color: #ff9800;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                margin: 0.3rem 0;
+            }
+            
+            .services, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <div class="logo">Project <span>X</span></div>
+            <p class="tagline">Мы не просто автоматизируем процессы — мы учим их танцевать под вашу музыку!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#services">Наши фокусы</a></li>
+                <li><a href="#benefits">Почему мы</a></li>
+                <li><a href="#about">Кто мы такие</a></li>
+                <li><a href="#contact">Наши волшебники</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Секция услуг -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши технологические фокусы</h2>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i>⚙️</i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Магия автоматизации</h3>
+                        <p>Превращаем ручную работу в автоматическую симфонию! Ваши сотрудники будут удивляться, как раньше справлялись с рутиной, которую теперь выполняют невидимые цифровые помощники. А вы сможете направить освободившуюся энергию команды на покорение новых вершин.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i>📊</i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Бизнес-аккупунктура</h3>
+                        <p>Находим болевые точки вашего бизнеса и делаем точечные уколы оптимизации! Выявляем места, где вашим процессам нужна помощь, и превращаем их из узких бутылочных горлышек в широкие автострады для информации и результатов.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i>🤖</i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Приручение ИИ-джиннов</h3>
+                        <p>Выпускаем из бутылки искусственный интеллект и заставляем его работать на вас! Машинное обучение и нейросети перестанут быть загадочными терминами и станут вашими верными помощниками в анализе данных и принятии сложных решений.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция преимуществ -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Почему нас выбирают трезвые бизнесмены</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div>
+                        <h3>Лазерная точность</h3>
+                        <p>Мы не размахиваем волшебной палочкой наобум. Каждое решение точно направлено на достижение ваших бизнес-целей, будто у нас есть снайперская винтовка для проблем.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div>
+                        <h3>Экономия как побочный эффект</h3>
+                        <p>Наши клиенты начинают экономить деньги так, словно у них появился финансовый диетолог. И это лишь побочный эффект оптимизации процессов!</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🧠</div>
+                    <div>
+                        <h3>Команда яйцеголовых</h3>
+                        <p>Наши специалисты настолько умны, что иногда мы боимся, что их головы не пройдут в дверь. Технические гении, которые говорят на языке бизнеса.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <div>
+                        <h3>Скорость внедрения</h3>
+                        <p>Мы не просто быстрые — мы космически быстрые. Пока другие составляют техническое задание, мы уже запускаем первые прототипы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Кто такие эти безумцы из Project X</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>Project X — это не просто компания, это тайное общество технических гениев, которые превращают головную боль в деньги. Мы собрались вместе, потому что нам надоело видеть, как бизнесы страдают от неэффективности и застрявших в прошлом веке процессов.</p>
+                <br>
+                <p>Наша миссия проста: сделать так, чтобы ваш бизнес работал как часы. Швейцарские. И очень дорогие. Мы не просто внедряем технологии — мы создаем симбиоз человеческого таланта и машинного интеллекта, который работает на вас 24/7 без перерыва на кофе и отпуск.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="cta">
+        <div class="container">
+            <h2>Готовы увидеть, как ваш бизнес обретает сверхспособности?</h2>
+            <p>Первый сеанс технологической магии совершенно бесплатно!</p>
+            <br>
+            <a href="#contact" class="btn">Познакомиться с нашими волшебниками</a>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Наши волшебники к вашим услугам</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">Выберите своего проводника в мир технологической магии!</p>
+            
+            <div class="contact-cards">
+                <!-- Первый контакт -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <h3 class="contact-title">Александр</h3>
+                        <p class="contact-subtitle">Техно-маг SEO</p>
+                    </div>
+                    <div class="contact-image-container">
+                        <img src="/api/placeholder/150/150" alt="Александр" class="contact-photo">
+                        <img src="/api/placeholder/150/150" alt="Александр (GIF)" class="contact-gif">
+                    </div>
+                    <div class="contact-content">
+                        <p class="quote">В моих руках любая система начинает работать как швейцарские часы</p>
+                        <p class="contact-description">Техно-маг, в чьих руках любая система начинает работать как по волшебству. Знает секретные заклинания оптимизации, которые превращают хаос в порядок. Если ваш бизнес — запутанные провода, Александр распутает их одним движением руки.</p>
+                        <a href="https://t.me/sanchezzkll" target="_blank" class="btn">Призвать техно-мага</a>
+                    </div>
+                </div>
+                
+                <!-- Второй контакт -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <h3 class="contact-title">Алина</h3>
+                        <p class="contact-subtitle">Бизнес-телепат SALE</p>
+                    </div>
+                    <div class="contact-image-container">
+                        <img src="/api/placeholder/150/150" alt="Алина" class="contact-photo">
+                        <img src="/api/placeholder/150/150" alt="Алина (GIF)" class="contact-gif">
+                    </div>
+                    <div class="contact-content">
+                        <p class="quote">Я знаю о ваших бизнес-болях больше, чем вы рассказываете на совещаниях</p>
+                        <p class="contact-description">Алина не просто слушает клиентов – она читает их мысли. Еще до того, как вы осознаете свою бизнес-проблему, она уже готовит решение, от которого невозможно отказаться. Находит скрытые возможности там, где другие видят только проблемы.</p>
+                        <a href="https://t.me/grossssa" target="_blank" class="btn">Связаться с телепатом</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="logo">Project <span>X</span></div>
+            <p>Технологическая магия для вашего бизнеса</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+            <p>&copy; 2025 Project X. Все секреты под защитой.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Анимация при наведении на фотографии контактов
+        document.querySelectorAll('.contact-image-container').forEach(container => {
+            container.addEventListener('mouseenter', () => {
+                const photo = container.querySelector('.contact-photo');
+                const gif = container.querySelector('.contact-gif');
+                photo.style.opacity = 0;
+                gif.style.opacity = 1;
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                const photo = container.querySelector('.contact-photo');
+                const gif = container.querySelector('.contact-gif');
+                photo.style.opacity = 1;
+                gif.style.opacity = 0;
+            });
+        });
+    </script>
+</body>
+</html>
